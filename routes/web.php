@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,8 +51,11 @@ Route::post('/guest/store',[GuestController::class,'store'])->name('guest.store'
 
 Route::get('/guest/edit/{id}',[GuestController::class,'edit'])->name('guest.edit');
 
-Route::post('/guest/update/{id}',[GuestController::class,'update'])
+Route::put('/guest/update/{id}',[GuestController::class,'update'])
 ->name('guest.update');
 
 Route::delete('/guest/delete/{id}',[GuestController::class,'delete'])
 ->name('guest.delete');
+
+Route::resource('order',OrderController::class);
+Route::get('/send-email',[OrderController::class,'sendEmail'])->name('order.sendEmail');

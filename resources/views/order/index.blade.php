@@ -5,12 +5,12 @@
         <div class="row mt-4">
             <div class="col-lg-12">
                 <div class="float-start">
-                    <h2>Laravel Guest</h2>
+                    <h2>Laravel Order</h2>
                 </div>
                 <div class="float-end mb-3">
-                    <a href="{{ route('guest.create') }}"
+                    <a href="{{ route('order.sendEmail') }}"
                     class="btn btn-success"
-                    >Create</a>
+                    >Send Email</a>
                 </div>
             </div>
         </div>
@@ -23,28 +23,27 @@
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
-                    <th>Username</th>
-                    <th>Fullname</th>
-                    <th>Role</th>
-                    <th>Job</th>
-                    <th>Department</th>
-                    <th>Status</th>
+                    <th>Date</th>
+                    <th>T Shirt</th>
+                    <th>Seller Name</th>
+                    <th>Price</th>
+                    <th>Total Order</th>
                     <th>Action</th>
                 </tr>
-                @foreach ($guestList as $g)
+                @foreach ($order as $g)
                     <tr>
                         <td>{{ ++$i }}</td>
-                        <td>{{ $g->username }}</td>
-                        <td>{{ $g->fullname }}</td>
-                        <td>{{ $g->role  }}</td>
-                        <td>{{ $g->job  }}</td>
-                        <td>{{ $g->department }}</td>
-                        <td>{{ $g->status }}</td>   
+                        <td>{{ $g->Date }}</td>
+                        <td>{{ $g->TShirtName }}</td>
+                        <td>{{ $g->SellerName  }}</td>
+                        <td>{{ $g->Price  }}</td>
+                        <td>{{ $g->TotalOrder }}</td>
+                     
                         <td>
-                            <form action="{{route('guest.delete',$g->id)}}" method="post">
+                            <form action="{{route('order.destroy',$g->id)}}" method="post">
                                 @csrf
                                 
-                                <a href="{{route('guest.edit',$g->id) }}" 
+                                <a href="{{route('order.edit',$g->id) }}" 
                                     class="btn btn-primary">Edit</a>
                                     @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Delete</button>
@@ -54,6 +53,6 @@
                 @endforeach
             </table>
             {{-- membuat link atau number page( << 1,2,3 >>) --}}
-       {{   $guestList->links()  }}
+       {{   $order->links()  }}
     </div>
 @endsection

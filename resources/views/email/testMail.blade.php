@@ -4,9 +4,12 @@
     </head>
     <body>
        
-        <h4>Hi ({{ $testMailData['name'] }}),</h4>
+        <h4>Hi (Ahmad),</h4>
 
 <p>Thank you for submitting an order for (details).</p>
+<p> Seller Name : {{  $testMailData['SellerName']}} </p>
+<p> Price : {{  $testMailData['Price']}} </p>
+<p> Total : {{  $testMailData['TotalOrder']}} </p>
 
 <p>I can confirm that we have received your order and are processing it.</p>
 
