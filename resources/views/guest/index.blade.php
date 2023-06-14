@@ -8,7 +8,7 @@
                     <h2>Laravel Guest</h2>
                 </div>
                 <div class="float-end mb-3">
-                    <a href="#"
+                    <a href="{{ route('guest.create') }}"
                     class="btn btn-success"
                     >Create</a>
                 </div>
